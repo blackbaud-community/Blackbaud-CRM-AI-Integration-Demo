@@ -1,0 +1,102 @@
+﻿<AddDataFormTemplateSpec 
+  xmlns="bb_appfx_adddataformtemplate"
+  xmlns:c="bb_appfx_commontypes" 
+  ID="0e938fea-a4cb-42c3-89ea-168626492fc5" 
+  Name="Constituent Photo Analysis Process Add Data Form"
+  Description="A data form for adding constituent photo analysis process records." 
+  Author="Blackbaud Demo"
+  DataFormInstanceID="d05a0e39-9372-4e60-affd-ef52067f5531" 
+  RecordType="Constituent Photo Analysis Process"
+  c:SecurityUIFolder="Constituent Photo Analysis"
+  FormHeader="Add a constituent photo analysis process"
+  >
+
+  <SPDataForm>
+    <LoadImplementation SPName="USR_USP_DATAFORMTEMPLATE_PRELOAD_ADD_CONSTITUENTPHOTOANALYSISPROCESS">
+      <c:CreateProcedureSQL>
+        <![CDATA[
+create procedure dbo.USR_USP_DATAFORMTEMPLATE_PRELOAD_ADD_CONSTITUENTPHOTOANALYSISPROCESS
+(
+  @RECORDTYPEID uniqueidentifier = null output
+)
+as	
+  set nocount on;
+								
+  select 
+    @RECORDTYPEID = ID
+  from 
+    dbo.RECORDTYPE 
+  where 
+    upper(NAME) = 'CONSTITUENT';
+    
+  return 0;
+
+        ]]>
+      </c:CreateProcedureSQL>
+    </LoadImplementation>
+    
+    <SaveImplementation SPName="USR_USP_DATAFORMTEMPLATE_ADD_CONSTITUENTPHOTOANALYSISPROCESS">
+      <c:CreateProcedureSQL>
+        <![CDATA[
+create procedure dbo.USR_USP_DATAFORMTEMPLATE_ADD_CONSTITUENTPHOTOANALYSISPROCESS
+(
+  @ID uniqueidentifier = null output,
+  @CHANGEAGENTID uniqueidentifier = null,
+  @NAME nvarchar(100),
+  @DESCRIPTION nvarchar(255) = '',
+  @IDSETREGISTERID uniqueidentifier = null
+)
+as
+
+set nocount on;
+
+if @ID is null
+  set @ID = newid();
+
+if @CHANGEAGENTID is null 
+  exec dbo.USP_CHANGEAGENT_GETORCREATECHANGEAGENT @CHANGEAGENTID output;
+
+declare @CURRENTDATE datetime;
+set @CURRENTDATE = getdate();
+
+begin try
+  -- handle inserting the data
+  insert into dbo.USR_CONSTITUENTPHOTOANALYSISPROCESS
+    (ID, NAME, DESCRIPTION, IDSETREGISTERID, ADDEDBYID, CHANGEDBYID, DATEADDED, DATECHANGED)
+  values
+    (@ID, @NAME, @DESCRIPTION, @IDSETREGISTERID, @CHANGEAGENTID, @CHANGEAGENTID, @CURRENTDATE, @CURRENTDATE);
+	
+end try
+
+begin catch
+  exec dbo.USP_RAISE_ERROR;
+  return 1;
+end catch
+
+return 0				
+        ]]>
+      </c:CreateProcedureSQL>
+      <ExpectedDBExceptions xmlns="bb_appfx_commontypes">
+        <Constraints>
+          <Constraint Field="IDSETREGISTERID" Name="FK_ACKNOWLEDGEMENTPROCESS_IDSETREGISTERID" Type="ForeignKey" />
+        </Constraints>
+      </ExpectedDBExceptions>
+    </SaveImplementation>
+  </SPDataForm>
+
+  <FormMetaData xmlns="bb_appfx_commontypes">
+    <FormFields>
+      <FormField FieldID="NAME" Caption="Name" Description="The name of this parameter set." Required="true" />
+      <FormField FieldID="DESCRIPTION" Caption="Description" Description="The description of this parameter set." />
+      <FormField FieldID="RECORDTYPEID" ReadOnly="true" Hidden="true" DataType="Guid" />
+      <FormField FieldID="IDSETREGISTERID" Caption="Selection" DataType="Guid">
+        <SearchList EnableQuickFind="true" SearchListID="98D0070E-C4A7-495b-A438-2AC12DA79068">
+          <FormFieldOverrides>
+            <FormFieldOverride DefaultValueText="Fields!RECORDTYPEID" ReadOnly="true" Caption="Record type" FieldID="RECORDTYPEID" Hidden="false" />
+          </FormFieldOverrides>
+        </SearchList>
+      </FormField>
+    </FormFields>
+  </FormMetaData>
+
+</AddDataFormTemplateSpec>

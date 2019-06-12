@@ -1,0 +1,100 @@
+﻿<SQLStoredProcedureSpec
+xmlns="bb_appfx_sqlstoredprocedure"
+xmlns:c="bb_appfx_commontypes"
+ID="e4b6807c-3918-4767-a6ef-fa37b62824c8"
+Name="USR_USP_CONSTITUENTPHOTOANALYSIS_UPSERT"
+Description="Add or update the analysis of a constituent photo."
+Author="Blackbaud Demo"
+SPName="USR_USP_CONSTITUENTPHOTOANALYSIS_UPSERT"
+>
+
+  <CreateProcedureSQL>
+    <![CDATA[
+create procedure dbo.USR_USP_CONSTITUENTPHOTOANALYSIS_UPSERT(
+  @CONSTITUENTID uniqueidentifier,
+  @PREDICTEDGENDERCODE tinyint,
+  @ESTIMATEDAGE int,
+  @ANGERRATING decimal(20, 4),
+  @CONTEMPTRATING decimal(20, 4),
+  @DISGUSTRATING decimal(20, 4),
+  @FEARRATING decimal(20, 4),
+  @HAPPINESSRATING decimal(20, 4),
+  @NEUTRALRATING decimal(20, 4),
+  @SADNESSRATING decimal(20, 4),
+  @SURPRISERATING decimal(20, 4),
+  @CHANGEAGENTID uniqueidentifier,
+  @CURRENTDATE datetime
+)
+as
+begin
+  set nocount on;
+	
+  if @CHANGEAGENTID is null
+    exec USP_CHANGEAGENT_GETORCREATECHANGEAGENT @CHANGEAGENTID output;
+
+  if @CURRENTDATE is null 
+    set @CURRENTDATE = getdate();
+
+  merge into dbo.USR_CONSTITUENTPHOTOANALYSIS as TARGET
+  using (
+    select @CONSTITUENTID CONSTITUENTID
+  ) as SOURCE
+  on (
+    TARGET.ID = SOURCE.CONSTITUENTID 
+  )
+  when matched then 
+	  update set 
+      TARGET.PREDICTEDGENDERCODE = @PREDICTEDGENDERCODE,
+      TARGET.ESTIMATEDAGE = @ESTIMATEDAGE,
+      TARGET.ANGERRATING = @ANGERRATING,
+      TARGET.CONTEMPTRATING = @CONTEMPTRATING,
+      TARGET.DISGUSTRATING = @DISGUSTRATING,
+      TARGET.FEARRATING = @FEARRATING,
+      TARGET.HAPPINESSRATING = @HAPPINESSRATING,
+      TARGET.NEUTRALRATING = @NEUTRALRATING,
+      TARGET.SADNESSRATING = @SADNESSRATING,
+      TARGET.SURPRISERATING = @SURPRISERATING,
+      TARGET.CHANGEDBYID = @CHANGEAGENTID,
+      TARGET.DATECHANGED = @CURRENTDATE
+  when not matched then
+	  insert
+    (
+      ID,
+      PREDICTEDGENDERCODE,
+      ESTIMATEDAGE,
+      ANGERRATING,
+      CONTEMPTRATING,
+      DISGUSTRATING,
+      FEARRATING,
+      HAPPINESSRATING,
+      NEUTRALRATING,
+      SADNESSRATING,
+      SURPRISERATING,
+      ADDEDBYID,
+      CHANGEDBYID,
+      DATEADDED,
+      DATECHANGED
+    )
+    values
+    (
+      @CONSTITUENTID,
+      @PREDICTEDGENDERCODE,
+      @ESTIMATEDAGE,
+      @ANGERRATING,
+      @CONTEMPTRATING,
+      @DISGUSTRATING,
+      @FEARRATING,
+      @HAPPINESSRATING,
+      @NEUTRALRATING,
+      @SADNESSRATING,
+      @SURPRISERATING,
+      @CHANGEAGENTID,
+      @CHANGEAGENTID,
+      @CURRENTDATE,
+      @CURRENTDATE
+    );
+end
+		]]>
+  </CreateProcedureSQL>
+
+</SQLStoredProcedureSpec>

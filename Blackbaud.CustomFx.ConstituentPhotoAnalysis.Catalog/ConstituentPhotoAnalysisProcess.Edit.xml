@@ -1,0 +1,118 @@
+﻿<EditDataFormTemplateSpec
+  xmlns="bb_appfx_editdataformtemplate"
+  xmlns:c="bb_appfx_commontypes"
+  ID="c0fb7440-4cae-4049-b24e-50fae2a91b17"
+  Name="Constituent Photo Analysis Process Edit Data Form"
+  Description="A data form for editing constituent photo analysis process records."
+  Author="Blackbaud Demo"
+  DataFormInstanceID="54c9dae0-1892-4307-8959-7368f42a9e3b"
+  RecordType="Constituent Photo Analysis Process"
+  c:SecurityUIFolder="Constituent Photo Analysis"
+  FormHeader="Edit a constituent photo analysis process"
+  >
+
+  <SPDataForm>
+    <LoadImplementation SPName="USR_USP_DATAFORMTEMPLATE_EDITLOAD_CONSTITUENT_PHOTO_ANALYSIS_PROCESS">
+      <c:CreateProcedureSQL>
+        <![CDATA[
+create procedure dbo.USR_USP_DATAFORMTEMPLATE_EDITLOAD_CONSTITUENT_PHOTO_ANALYSIS_PROCESS
+(
+  @ID uniqueidentifier,
+  @DATALOADED bit = 0 output,
+  @TSLONG bigint = 0 output,
+  @RECORDTYPEID uniqueidentifier = null output,
+  @NAME nvarchar(100) = null output,
+  @DESCRIPTION nvarchar(255) = null output,
+  @IDSETREGISTERID uniqueidentifier = null output
+)
+  as
+
+  set nocount on;
+
+  set @DATALOADED = 0;
+  set @TSLONG = 0;
+
+  select 
+    @RECORDTYPEID = ID
+  from 
+    dbo.RECORDTYPE 
+  where 
+    upper(NAME) = 'CONSTITUENT';
+
+  select
+    @DATALOADED = 1,
+    @TSLONG = TSLONG,
+    @NAME = NAME,
+    @DESCRIPTION = DESCRIPTION,
+    @IDSETREGISTERID = IDSETREGISTERID		
+  from dbo.USR_CONSTITUENTPHOTOANALYSISPROCESS
+  where ID = @ID;
+
+  return 0;
+]]>
+      </c:CreateProcedureSQL>
+    </LoadImplementation>
+
+    <SaveImplementation SPName="USR_USP_DATAFORMTEMPLATE_EDIT_CONSTITUENT_PHOTO_ANALYSIS_PROCESS">
+      <c:CreateProcedureSQL>
+        <![CDATA[
+create procedure dbo.USR_USP_DATAFORMTEMPLATE_EDIT_CONSTITUENT_PHOTO_ANALYSIS_PROCESS 
+(
+  @ID uniqueidentifier,
+  @CHANGEAGENTID uniqueidentifier = null,
+  @NAME nvarchar(100),
+  @DESCRIPTION nvarchar(255),
+  @IDSETREGISTERID uniqueidentifier
+)
+as
+
+  set nocount on;
+
+  if @CHANGEAGENTID is null  
+    exec dbo.USP_CHANGEAGENT_GETORCREATECHANGEAGENT @CHANGEAGENTID output;
+				
+  declare @CURRENTDATE datetime;
+  set @CURRENTDATE = getdate();
+
+  begin try
+    update dbo.USR_CONSTITUENTPHOTOANALYSISPROCESS set
+      NAME = @NAME,
+      DESCRIPTION = @DESCRIPTION,
+      IDSETREGISTERID = @IDSETREGISTERID,
+      CHANGEDBYID = @CHANGEAGENTID,
+      DATECHANGED = @CURRENTDATE
+    where ID = @ID;
+  end try
+  begin catch
+      exec dbo.USP_RAISE_ERROR;
+      return 1;
+  end catch
+
+return 0;
+]]>
+      </c:CreateProcedureSQL>
+      <ExpectedDBExceptions xmlns="bb_appfx_commontypes">
+        <Constraints>
+          <Constraint Field="IDSETREGISTERID" Name="FK_ACKNOWLEDGEMENTPROCESS_IDSETREGISTERID" Type="ForeignKey" />
+        </Constraints>
+      </ExpectedDBExceptions>
+    </SaveImplementation>
+
+  </SPDataForm>
+
+  <FormMetaData xmlns="bb_appfx_commontypes">
+    <FormFields>
+      <FormField FieldID="NAME" Caption="Name" Description="The name of this parameter set." Required="true" />
+      <FormField FieldID="DESCRIPTION" Caption="Description" Description="The description of this parameter set." />
+      <FormField FieldID="RECORDTYPEID" ReadOnly="true" Hidden="true" DataType="Guid" />
+      <FormField FieldID="IDSETREGISTERID" Caption="Selection" DataType="Guid">
+        <SearchList EnableQuickFind="true" SearchListID="98D0070E-C4A7-495b-A438-2AC12DA79068">
+          <FormFieldOverrides>
+            <FormFieldOverride DefaultValueText="Fields!RECORDTYPEID" ReadOnly="true" Caption="Record type" FieldID="RECORDTYPEID" Hidden="false" />
+          </FormFieldOverrides>
+        </SearchList>
+      </FormField>
+    </FormFields>
+  </FormMetaData>
+
+</EditDataFormTemplateSpec>

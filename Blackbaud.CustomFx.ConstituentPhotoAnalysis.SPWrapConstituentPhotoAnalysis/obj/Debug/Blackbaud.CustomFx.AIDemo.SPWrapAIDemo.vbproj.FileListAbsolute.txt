@@ -1,0 +1,7 @@
+C:\Users\DavidHe\Desktop\Developers' Conference 2019\AI Session\Blackbaud.CustomFx.AIDemo\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo\obj\Debug\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo.dll
+C:\Users\DavidHe\Desktop\Developers' Conference 2019\AI Session\Blackbaud.CustomFx.AIDemo\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo\obj\Debug\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo.pdb
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo.dll
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo.pdb
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo.dll.CodeAnalysisLog.xml
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo.dll.lastcodeanalysissucceeded
+C:\Users\DavidHe\Desktop\Developers' Conference 2019\AI Session\Blackbaud.CustomFx.AIDemo\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo\obj\Debug\Blackbaud.CustomFx.AIDemo.SPWrapAIDemo.vbprojResolveAssemblyReference.cache

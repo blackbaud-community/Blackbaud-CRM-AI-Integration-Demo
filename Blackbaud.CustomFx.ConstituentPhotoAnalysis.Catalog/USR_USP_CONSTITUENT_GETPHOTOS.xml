@@ -1,0 +1,37 @@
+﻿<SQLStoredProcedureSpec
+  xmlns="bb_appfx_sqlstoredprocedure"
+  xmlns:common="bb_appfx_commontypes"
+  Author="Blackbaud Demo"
+  Description="Retrieves constituent photos for a given ID set."
+  ID="1cc47088-3369-49db-98b9-971c04e46ab3"
+  Name="USR_USP_CONSTITUENT_GETPHOTOS"
+  SPName="USR_USP_CONSTITUENT_GETPHOTOS">
+
+  <CreateProcedureSQL>
+    <![CDATA[
+create procedure dbo.USR_USP_CONSTITUENT_GETPHOTOS
+(
+  @IDSETREGISTERID uniqueidentifier = null
+)	
+as
+  set nocount on;
+
+  -- For more complex branching, write in dynamic SQL
+  
+  if @IDSETREGISTERID is null
+    select 
+      CONSTITUENT.ID,
+      CONSTITUENT.PICTURE
+    from 
+      dbo.CONSTITUENT;
+  else
+    select 
+      CONSTITUENT.ID,
+      CONSTITUENT.PICTURE
+    from 
+      dbo.CONSTITUENT
+      inner join dbo.UFN_IDSETREADER_GETRESULTS_GUID(@IDSETREGISTERID) IDS on IDS.ID = CONSTITUENT.ID;
+		]]>
+  </CreateProcedureSQL>
+
+</SQLStoredProcedureSpec>

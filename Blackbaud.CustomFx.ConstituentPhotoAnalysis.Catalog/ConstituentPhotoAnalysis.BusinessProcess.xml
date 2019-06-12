@@ -1,0 +1,22 @@
+﻿<BusinessProcessSpec
+  xmlns="bb_appfx_businessprocess"
+  xmlns:c="bb_appfx_commontypes"
+  ID="30c47cb6-c2b2-4ae0-8aa0-55a72d3e205b"
+  Name="Constituent Photo Analysis Business Process"
+  Description="A process for performing analysis on constituent photos."
+  Author="Blackbaud Demo"
+  ParameterTableName="USR_CONSTITUENTPHOTOANALYSISPROCESS"
+  RecordType="Constituent Photo Analysis Process"
+  c:SecurityUIFolder="Constituent Photo Analysis">
+
+  <ProcessorComponent AssemblyName="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog" ClassName="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisBusinessProcess" >
+    
+    <c:GrantExecuteList>
+      <c:GrantExecute>USR_USP_CONSTITUENT_GETPHOTOS</c:GrantExecute>
+      <c:GrantExecute>USR_USP_CONSTITUENTPHOTOANALYSISPROCESS_GETPARAMETERS</c:GrantExecute>
+      <c:GrantExecute>USR_USP_CONSTITUENTPHOTOANALYSIS_UPSERT</c:GrantExecute>
+    </c:GrantExecuteList>
+
+  </ProcessorComponent>
+
+</BusinessProcessSpec>

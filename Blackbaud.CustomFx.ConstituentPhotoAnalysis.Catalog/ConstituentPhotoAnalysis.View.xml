@@ -1,0 +1,74 @@
+﻿<ViewDataFormTemplateSpec
+  xmlns="bb_appfx_viewdataformtemplate"
+  xmlns:c="bb_appfx_commontypes"
+  ID="13e631e3-a570-4f95-a65d-653a1020418e"
+  Name="Constituent Photo Analysis View Form"
+  Description="A data form for viewing the results of a constituent photo analysis."
+  Author="Blackbaud Demo"
+  DataFormInstanceID="c8eb35c2-6fda-4f1e-a379-b7609aca772f"
+  RecordType="Constituent"
+  c:SecurityUIFolder="Constituent Photo Analysis"
+  >
+
+  <SPDataForm SPName="USR_USP_DATAFORMTEMPLATE_VIEW_CONSTITUENTPHOTOANALYSIS">
+    <c:CreateProcedureSQL>
+      <![CDATA[
+create procedure dbo.USR_USP_DATAFORMTEMPLATE_VIEW_CONSTITUENTPHOTOANALYSIS
+(
+  @ID uniqueidentifier,
+  @DATALOADED bit = 0 output,
+  @PREDICTEDGENDER nvarchar(7) = null output,
+  @ESTIMATEDAGE int = null output,
+  @ANGERRATING  decimal(20, 4) = null output,
+  @CONTEMPTRATING  decimal(20, 4) = null output,
+  @DISGUSTRATING  decimal(20, 4) = null output,
+  @FEARRATING  decimal(20, 4) = null output,
+  @HAPPINESSRATING  decimal(20, 4) = null output,
+  @NEUTRALRATING  decimal(20, 4) = null output,
+  @SADNESSRATING  decimal(20, 4) = null output,
+  @SURPRISERATING  decimal(20, 4) = null output
+)
+as
+  set nocount on;
+
+  set @DATALOADED = 0;
+	
+  select 
+    @DATALOADED = 1,
+    @PREDICTEDGENDER = PREDICTEDGENDER,
+    @ESTIMATEDAGE = ESTIMATEDAGE,
+    @ANGERRATING = ANGERRATING,
+    @CONTEMPTRATING = CONTEMPTRATING,
+    @DISGUSTRATING = DISGUSTRATING,
+    @FEARRATING = FEARRATING,
+    @HAPPINESSRATING = HAPPINESSRATING,
+    @NEUTRALRATING = NEUTRALRATING,
+    @SADNESSRATING = SADNESSRATING,
+    @SURPRISERATING = SURPRISERATING
+  from 
+    dbo.CONSTITUENT
+    left join dbo.USR_CONSTITUENTPHOTOANALYSIS on USR_CONSTITUENTPHOTOANALYSIS.ID = CONSTITUENT.ID
+  where 
+    CONSTITUENT.ID = @ID;
+	
+  return 0;
+]]>
+    </c:CreateProcedureSQL>
+  </SPDataForm>
+
+  <FormMetaData xmlns="bb_appfx_commontypes">
+    <FormFields>
+      <FormField FieldID="PREDICTEDGENDER" Caption="Gender" DataType="String" MaxLength="7" />
+      <FormField FieldID="ESTIMATEDAGE" Caption="Estimated age" DataType="Integer" />
+      <FormField FieldID="ANGERRATING" Caption="Anger" DataType="Decimal" Precision="20" Scale="4" />
+      <FormField FieldID="CONTEMPTRATING" Caption="Contempt" DataType="Decimal" Precision="20" Scale="4" />
+      <FormField FieldID="DISGUSTRATING" Caption="Disgust" DataType="Decimal" Precision="20" Scale="4" />
+      <FormField FieldID="FEARRATING" Caption="Fear" DataType="Decimal" Precision="20" Scale="4" />
+      <FormField FieldID="HAPPINESSRATING" Caption="Happiness" DataType="Decimal" Precision="20" Scale="4" />
+      <FormField FieldID="NEUTRALRATING" Caption="Neutral" DataType="Decimal" Precision="20" Scale="4" />
+      <FormField FieldID="SADNESSRATING" Caption="Sadness" DataType="Decimal" Precision="20" Scale="4" />
+      <FormField FieldID="SURPRISERATING" Caption="Surprise" DataType="Decimal" Precision="20" Scale="4" />
+    </FormFields>
+  </FormMetaData>
+
+</ViewDataFormTemplateSpec>

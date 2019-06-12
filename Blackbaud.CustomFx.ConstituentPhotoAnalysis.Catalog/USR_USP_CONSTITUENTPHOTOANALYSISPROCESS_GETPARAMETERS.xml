@@ -1,0 +1,28 @@
+﻿<SQLStoredProcedureSpec
+  xmlns="bb_appfx_sqlstoredprocedure"
+  xmlns:common="bb_appfx_commontypes"
+  Author="Blackbaud Demo"
+  Description="Retrieves parameter settings for a given constituent photo analysis process parameter set."
+  ID="89159454-d17a-4fea-b7d2-10518029007a"
+  Name="USR_USP_CONSTITUENTPHOTOANALYSISPROCESS_GETPARAMETERS"
+  SPName="USR_USP_CONSTITUENTPHOTOANALYSISPROCESS_GETPARAMETERS">
+
+  <CreateProcedureSQL>
+    <![CDATA[
+      create procedure dbo.USR_USP_CONSTITUENTPHOTOANALYSISPROCESS_GETPARAMETERS
+      (
+        @ID uniqueidentifier = null
+      )	
+      as
+        set nocount on;
+
+        select 
+          USR_CONSTITUENTPHOTOANALYSISPROCESS.IDSETREGISTERID
+        from 
+          dbo.USR_CONSTITUENTPHOTOANALYSISPROCESS
+        where 
+          USR_CONSTITUENTPHOTOANALYSISPROCESS.ID = @ID;
+		]]>
+  </CreateProcedureSQL>
+
+</SQLStoredProcedureSpec>

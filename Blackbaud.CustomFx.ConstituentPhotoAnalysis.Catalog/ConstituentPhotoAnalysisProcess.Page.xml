@@ -1,0 +1,106 @@
+﻿<PageDefinitionSpec
+  xmlns="bb_appfx_pagedefinition"
+  xmlns:c="bb_appfx_commontypes"
+  ID="73499daf-8c20-4a79-9f80-49a1bc2007f1"
+  Name="Constituent Photo Analysis Process Page"
+  Description="A page for displaying information about a constituent photo analysis process."
+  Author="Blackbaud Demo"
+  ContextRecordType="Constituent Photo Analysis Process"
+  ExpressionDataFormID="cfab817f-b49c-41d5-9e31-091cc0641082"
+  >
+
+  <PageHeader Caption="Constituent Photo Analysis" ImageKey="catalog:Blackbaud.AppFx.Platform.Catalog,Blackbaud.AppFx.Platform.Catalog.batchimport.png" />
+
+  <SummarySection ID="a058d08b-8d55-4d21-97e2-e070d69a9719" HideCaption="true">
+    <DataForm ID="cfab817f-b49c-41d5-9e31-091cc0641082" ShowBorder="true" />
+  </SummarySection>
+
+  <Tabs>
+    <Tab ID="ebd6660e-7bda-4788-8ee2-ed728a885889" Caption="Recent status">
+      <Sections>
+        <Section ID="63f1a872-1d40-4249-988d-810a849f8582" Caption="Recent status">
+          <DataForm ID="7af8c991-c049-4d03-80d2-b3a72dea6470" />
+          <SectionContext>
+            <c:PageContextID />
+          </SectionContext>
+        </Section>
+      </Sections>
+    </Tab>
+    <Tab ID="33acbb4d-9186-43e2-8eca-9eb536ce0989" Caption="History">
+      <Sections>
+        <Section ID="5d915296-956c-40d2-b27c-88b0bd7f33de" Caption="History">
+          <DataList ID="c82acdf1-76a9-46b2-a6c0-8fb40fba564f" ShowBorder="true">
+            <RenderStyle>
+              <GroupedView>
+                <Groups>
+                  <Group ColumnName="STATUS" />
+                  <Group ColumnName="STARTEDBY" />
+                </Groups>
+              </GroupedView>
+            </RenderStyle>
+          </DataList>
+          <Actions>
+            <Action ID="4e91404c-73ff-49bd-801a-b7e00f91ebfe" Caption="Delete" ImageKey="RES:Delete">
+              <c:ExecuteRecordOperation RecordOperationID="CD7EB55F-22F7-412a-9363-DEC8E192310C">
+                <c:ActionContext>
+                  <c:SectionField>ID</c:SectionField>
+                </c:ActionContext>
+                <c:PostActionEvent>
+                  <c:RefreshSection />
+                </c:PostActionEvent>
+              </c:ExecuteRecordOperation>
+            </Action>
+          </Actions>
+        </Section>
+      </Sections>
+    </Tab>
+  </Tabs>
+
+  <PageActionGroups>
+
+    <PageActionGroup ID="acc85240-489a-47c8-8b10-e1eda8c12bb8" Caption="Tasks" ImageKey="RES:Tasks">
+      <Actions>
+        <Action ID="8437aad2-0ddc-4060-9b23-51d0fd5119b4" Caption="Start process" ImageKey="RES:businessprocessspec" Visible="=Not Page.Fields!WILLRESUME">
+          <c:StartBusinessProcess BusinessProcessID="30c47cb6-c2b2-4ae0-8aa0-55a72d3e205b" StatusPageID="73499daf-8c20-4a79-9f80-49a1bc2007f1">
+            <c:ActionContext>
+              <c:PageContextID />
+            </c:ActionContext>
+            <c:FormDefaultValues>
+              <c:DefaultValue FieldID="ISFORWEBSHELL">
+                <c:Value>
+                  <c:Expression>=Globals.IsWebshell</c:Expression>
+                </c:Value>
+              </c:DefaultValue>
+            </c:FormDefaultValues>
+          </c:StartBusinessProcess>
+        </Action>
+        <Action ID="00a07ebf-aa35-4fc4-99a8-04f37d9f2e47" Caption="Resume process" ImageKey="RES:businessprocessspec" Visible="=Page.Fields!WILLRESUME">
+          <c:StartBusinessProcess BusinessProcessID="30c47cb6-c2b2-4ae0-8aa0-55a72d3e205b" StatusPageID="73499daf-8c20-4a79-9f80-49a1bc2007f1">
+            <c:ActionContext>
+              <c:PageContextID />
+            </c:ActionContext>
+          </c:StartBusinessProcess>
+        </Action>
+        <Action ID="dfc9f0df-3d1b-40a6-b5fc-b2ea2984c704" Caption="Edit process" ImageKey="RES:Edit">
+          <c:ShowDataForm DataFormID="54c9dae0-1892-4307-8959-7368f42a9e3b">
+            <c:ActionContext>
+              <c:PageContextID />
+            </c:ActionContext>
+            <c:PostActionEvent>
+              <c:RefreshPage />
+            </c:PostActionEvent>
+            <c:FormDefaultValues>
+              <c:DefaultValue FieldID="ISFORWEBSHELL">
+                <c:Value>
+                  <c:Expression>=Globals.IsWebshell</c:Expression>
+                </c:Value>
+              </c:DefaultValue>
+            </c:FormDefaultValues>
+          </c:ShowDataForm>
+        </Action>
+      </Actions>
+    </PageActionGroup>
+
+  </PageActionGroups>
+
+</PageDefinitionSpec>
