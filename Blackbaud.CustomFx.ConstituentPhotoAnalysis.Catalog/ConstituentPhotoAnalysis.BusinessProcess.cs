@@ -17,7 +17,7 @@ namespace Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog
         // You will need your own subscription key
         private const string subscriptionKey = "<Replace with your key>";
 
-        //You must use the same region as you used to get your subscription
+        // You must use the same region as you used to get your subscription
         // keys. For example, if you got your subscription keys from westus,
         // replace "westcentralus" with "westus".
 
@@ -63,7 +63,7 @@ namespace Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog
                 }
                 else
                 {
-                    throw new System.Exception("Could not retrieve parameters.");
+                    throw new ServiceException("Could not retrieve parameters.");
                 }
 
                 SPWrapConstituentPhotoAnalysis.USR_USP_CONSTITUENT_GETPHOTOS.SPResultCollection rows = SPWrapConstituentPhotoAnalysis.USR_USP_CONSTITUENT_GETPHOTOS.WrapperRoutines.ExecuteSP(conn, idSetRegisterID);
