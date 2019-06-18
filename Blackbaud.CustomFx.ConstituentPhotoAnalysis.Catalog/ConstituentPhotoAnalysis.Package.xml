@@ -1,0 +1,30 @@
+<PackageSpec
+  xmlns="bb_appfx_package"
+  xmlns:c="bb_appfx_commontypes"
+  ID="43716f0a-b616-47b0-bddb-2115369fa600"
+  Name="Constituent Photo Analysis Package"
+  Description="A package defining specs related to constituent photo analysis."
+  Author="Blackbaud Demo"
+  >
+
+  <c:DependencyList>
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysis.Table.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcess.Table.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.USR_USP_CONSTITUENT_GETPHOTOS.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.USR_USP_CONSTITUENTPHOTOANALYSIS_UPSERT.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.USR_USP_CONSTITUENTPHOTOANALYSISPROCESS_GETPARAMETERS.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcessDelete.RecordOperation.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcess.DataList.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcessStatus.DataList.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcess.Add.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcess.Edit.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysis.View.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcess.View.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcessRecentStatus.View.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysis.BusinessProcess.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcess.Page.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcessList.Page.xml" />
+    <c:Dependency CatalogAssembly="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.dll" CatalogItem="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcess.Task.xml" />
+  </c:DependencyList>
+
+</PackageSpec>

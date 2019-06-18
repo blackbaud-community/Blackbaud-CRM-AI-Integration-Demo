@@ -1,0 +1,35 @@
+﻿<TableSpec
+  xmlns="bb_appfx_table"
+  xmlns:c="bb_appfx_commontypes"
+  ID="40c6f24f-76a9-45ee-9b09-b47af1b8313c"
+  Name="Constituent Photo Analysis Process"
+  Description="Stores information about constituent photo analysis process records."
+  Author="Blackbaud Demo"
+  Tablename="USR_CONSTITUENTPHOTOANALYSISPROCESS"
+  IsBuiltIn="false"
+  >
+
+  <Fields>
+    
+    <TextField
+    Name="NAME"
+    Description="The name of this process."
+    IsUnique="true"
+    Length="100"
+    Required="true"/>
+
+    <TextField
+    Name="DESCRIPTION"
+    Description="The description of this process."
+    Length="255"/>
+
+    <ForeignKeyField
+    Name="IDSETREGISTERID"
+    Cardinality = "ManyToOne"
+    Description = "A foreign key to the ID set used to filter the records included in the constituent photo analysis process."
+    ForeignTable = "IDSETREGISTER"
+    Required="false"/>
+    
+  </Fields>
+
+</TableSpec>

@@ -1,0 +1,41 @@
+﻿<DataListSpec
+  xmlns="bb_appfx_datalist"
+  xmlns:c="bb_appfx_commontypes"
+  ID="dea04fe3-fa3c-453e-8396-54ee4008c925"
+  Name="Constituent Photo Analysis Process Data List"
+  Description="A data list showing constituent photo analysis process records."
+  Author="Blackbaud Demo"
+  c:SecurityUIFolder="Constituent Photo Analysis Process"
+  >
+
+  <SPDataList SPName="USR_USP_DATALIST_CONSTITUENTPHOTOANALYSISPROCESS">
+    <c:CreateProcedureSQL>
+      <![CDATA[
+create procedure dbo.USR_USP_DATALIST_CONSTITUENTPHOTOANALYSISPROCESS
+as
+  set nocount on;
+
+  select
+    USR_CONSTITUENTPHOTOANALYSISPROCESS.ID,
+    USR_CONSTITUENTPHOTOANALYSISPROCESS.NAME,
+    USR_CONSTITUENTPHOTOANALYSISPROCESS.DESCRIPTION,
+    IDSETREGISTER.NAME SELECTION
+  from 
+    dbo.USR_CONSTITUENTPHOTOANALYSISPROCESS
+    left join dbo.IDSETREGISTER on IDSETREGISTER.ID = USR_CONSTITUENTPHOTOANALYSISPROCESS.IDSETREGISTERID
+  order by 
+    NAME;
+]]>
+    </c:CreateProcedureSQL>
+  </SPDataList>
+
+  <Output>
+    <OutputFields>
+      <OutputField FieldID="ID" Caption="ID" DataType="Guid" IsHidden="true" />
+      <OutputField FieldID="NAME" Caption="Name" DataType="String" />
+      <OutputField FieldID="DESCRIPTION" Caption="Description" DataType="String" />
+      <OutputField FieldID="SELECTION" Caption="Selection" DataType="String" />
+    </OutputFields>
+  </Output>
+
+</DataListSpec>

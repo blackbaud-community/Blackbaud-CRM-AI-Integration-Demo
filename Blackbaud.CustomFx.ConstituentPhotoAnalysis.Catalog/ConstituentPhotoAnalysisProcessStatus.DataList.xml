@@ -1,0 +1,69 @@
+﻿<DataListSpec
+  xmlns="bb_appfx_datalist"
+  xmlns:c="bb_appfx_commontypes"
+  ID="c82acdf1-76a9-46b2-a6c0-8fb40fba564f"
+  Name="Constituent Photo Analysis Process Status Data List"
+  Description="A data list showing constituent photo analysis process status records."
+  Author="Blackbaud Demo"
+  c:SecurityUIFolder="Constituent Photo Analysis"
+  >
+
+  <CLRDataList AssemblyName="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog" ClassName="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcessStatusDataList" >
+    <GrantSelectList xmlns="bb_appfx_commontypes">
+      <GrantSelect>USR_CONSTITUENTPHOTOANALYSISPROCESS</GrantSelect>
+    </GrantSelectList>
+  </CLRDataList>
+
+  <Context ContextRecordType="Constituent Photo Analysis Process" />
+
+  <Parameters>
+    <c:FormMetaData>
+      <c:FormFields>
+        <c:FormField FieldID="STATUSCODE" Caption="Status">
+          <c:ValueList>
+            <c:Items>
+              <c:Item>
+                <c:Value>0</c:Value>
+                <c:Label>Completed</c:Label>
+              </c:Item>
+              <c:Item>
+                <c:Value>1</c:Value>
+                <c:Label>Running</c:Label>
+              </c:Item>
+              <c:Item>
+                <c:Value>2</c:Value>
+                <c:Label>Did not finish</c:Label>
+              </c:Item>
+            </c:Items>
+          </c:ValueList>
+        </c:FormField>
+      </c:FormFields>
+    </c:FormMetaData>
+  </Parameters>
+
+  <Output>
+    <OutputFields>
+      <OutputField FieldID="ID" Caption="ID" DataType="Guid" IsHidden="true" />
+      <OutputField FieldID="PROCESSNAME" Caption="Process name" DataType="String" IsHidden="true"  />
+      <OutputField FieldID="STATUS" Caption="Status" DataType="String" />
+      <OutputField FieldID="STATUSMESSAGE" Caption="Status message" DataType="String" />
+      <OutputField FieldID="STARTEDBY" Caption="Started by" DataType="String" />
+      <OutputField FieldID="STARTED" Caption="Started" DataType="Date" DisplayDateAsDateTime="true" />
+      <OutputField FieldID="ENDED" Caption="Ended" DataType="Date" DisplayDateAsDateTime="true" />
+      <OutputField FieldID="DURATION" Caption="Duration" DataType="String" />
+      <OutputField FieldID="NUMBEROFRECORDSPROCESSED" Caption="Number of records processed" DataType="String" />
+      <OutputField FieldID="NUMBEROFEXCEPTIONRECORDS" Caption="Number of exception records" DataType="String" />
+      <OutputField FieldID="TOTALCOUNT" Caption="Total count" DataType="String" IsHidden="true" />
+      <OutputField FieldID="SERVERNAME" Caption="Server name" DataType="String" />
+      <OutputField FieldID="IMAGEKEY" Caption="Image key" DataType="String" IsImageKey="true" IsHidden="true" />
+      <OutputField FieldID="COMPLETED" Caption="Completed" DataType="String" IsHidden="true" />
+      <OutputField FieldID="ENABLEDOWNLOAD" Caption="Enable download" DataType="String" IsHidden="true" />
+      <OutputField FieldID="ENABLELETTERMAILMERGE" Caption="Enable letter mail merge" DataType="String" IsHidden="true" />
+      <OutputField FieldID="ENABLELABELMAILMERGE" Caption="Enable label mail merge" DataType="String" IsHidden="true" />
+      <OutputField FieldID="BUSINESSPROCESSCATALOGID" Caption="Business process catalog ID" IsHidden="true" DataType="Guid" />
+      <OutputField FieldID="PARAMETERSETID" Caption="Parameter set ID" IsHidden="true" DataType="Guid" />
+      <OutputField FieldID="OUTPUTTABLEEXISTS" Caption="Output table exists" DataType="Boolean" IsHidden="true" />
+    </OutputFields>
+  </Output>
+
+</DataListSpec>

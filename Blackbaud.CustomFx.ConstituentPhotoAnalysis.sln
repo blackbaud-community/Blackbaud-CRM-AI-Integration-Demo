@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog", "Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog\Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.csproj", "{BB06B2D7-3828-4D9D-92FF-9521F8C956EF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A429992-E5D5-400C-B7CF-2811E586A495} = {8A429992-E5D5-400C-B7CF-2811E586A495}
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis", "Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.vbproj", "{8A429992-E5D5-400C-B7CF-2811E586A495}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB06B2D7-3828-4D9D-92FF-9521F8C956EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB06B2D7-3828-4D9D-92FF-9521F8C956EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB06B2D7-3828-4D9D-92FF-9521F8C956EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB06B2D7-3828-4D9D-92FF-9521F8C956EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A429992-E5D5-400C-B7CF-2811E586A495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A429992-E5D5-400C-B7CF-2811E586A495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A429992-E5D5-400C-B7CF-2811E586A495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A429992-E5D5-400C-B7CF-2811E586A495}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51268E9F-0559-4CF1-B51E-39F0A9E5E92B}
+	EndGlobalSection
+EndGlobal

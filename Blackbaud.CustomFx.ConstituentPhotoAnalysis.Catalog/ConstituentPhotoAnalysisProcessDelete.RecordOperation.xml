@@ -1,0 +1,37 @@
+﻿<RecordOperationSpec
+  xmlns="bb_appfx_recordoperation"
+  xmlns:c="bb_appfx_commontypes"
+  ID="6db95a44-9894-4edf-bc8b-067d6fd41c04"
+  Name="Constituent Photo Analysis Process Delete Record Operation"
+  Description="Deletes a constituent photo analysis process."
+  Author="Blackbaud Demo"
+  OperationType="Delete"
+  RecordType="Constituent Photo Analysis Process"
+  c:SecurityUIFolder="Constituent Photo Analysis"
+  >
+
+  <SPRecord>
+    <SPOperationImplementation SPName="USR_USP_RECORDOPERATION_CONSTITUENTPHOTOANALYSISPROCESSDELETE">
+      <c:CreateProcedureSQL>
+        <![CDATA[
+create procedure dbo.USR_USP_RECORDOPERATION_CONSTITUENTPHOTOANALYSISPROCESSDELETE
+(
+  @ID uniqueidentifier,
+  @CHANGEAGENTID uniqueidentifier
+)
+as begin
+
+  exec USP_USR_CONSTITUENTPHOTOANALYSISPROCESS_DELETEBYID_WITHCHANGEAGENTID @ID, @CHANGEAGENTID;
+  
+  return 0;
+end
+]]>
+      </c:CreateProcedureSQL>
+    </SPOperationImplementation>
+  </SPRecord>
+
+  <Prompt>
+    <StandardPrompt Text="Are you sure you want to delete this constiutent photo analysis process?" />
+  </Prompt>
+
+</RecordOperationSpec>

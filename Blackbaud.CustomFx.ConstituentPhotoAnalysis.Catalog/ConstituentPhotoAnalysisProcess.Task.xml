@@ -1,0 +1,17 @@
+﻿<TaskSpec
+  xmlns="bb_appfx_task"
+  xmlns:c="bb_appfx_commontypes"
+  ID="90aff1c9-b281-4574-ae09-4cf64b7a0e6d"
+  Name="Constituent Photo Analysis"
+  Description="Constituent Photo Analysis processes."
+  Author="Blackbaud Demo"
+  FunctionalAreaID="00050CE8-8ABB-4A86-B9AF-70A035CE0582"
+  TaskGroup="Constituent Photo Analysis"
+  DisplayAsAction="true"
+  Sequence="999"
+  ImageKey="catalog:Blackbaud.AppFx.Platform.Catalog,Blackbaud.AppFx.Platform.Catalog.batchimport.png"
+  >
+
+  <c:ShowPage PageID="c32afc60-525f-4fe2-badb-88cd2e6e57c7" />
+
+</TaskSpec>

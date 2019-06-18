@@ -1,0 +1,62 @@
+﻿<PageDefinitionSpec
+  xmlns="bb_appfx_pagedefinition"
+  xmlns:c="bb_appfx_commontypes"
+  ID="c32afc60-525f-4fe2-badb-88cd2e6e57c7"
+  Name="Constituent Photo Analysis Process List Page"
+  Description="A page for displaying information about constituent photo analysis process list records"
+  Author="Blackbaud Demo"
+  ContextRecordType="Constituent Photo Analysis Process"
+  >
+  
+  <PageHeader Caption="Constituent Photo Analysis" ImageKey="catalog:Blackbaud.AppFx.Platform.Catalog,Blackbaud.AppFx.Platform.Catalog.batchimport.png" />
+
+  <Tabs>
+    <Tab ID="442b40ba-9920-44c7-bd68-34354ba12265" Caption="Constituent Photo Analysis Processes">
+
+      <Sections>
+        <Section ID="5b7dd7e2-e4a1-40d6-8953-2100ad61bcd6" Caption="Constituent Photo Analysisi Processes">
+          <DataList ID="dea04fe3-fa3c-453e-8396-54ee4008c925">
+            <RenderStyle>
+              <StandardView/>
+            </RenderStyle>
+          </DataList>
+
+          <Actions>
+            <Action ID="255ec8e9-a08b-46cf-b459-d2c87650f60c" Caption="Go to process" ImageKey="RES:goto_round" DefaultAction="true" AppendSeparator="true" LinkFieldID="NAME">
+              <ShowPage PageID="73499daf-8c20-4a79-9f80-49a1bc2007f1" xmlns="bb_appfx_commontypes">
+                <ActionContext>
+                  <SectionField>ID</SectionField>
+                </ActionContext>
+              </ShowPage>
+            </Action>
+            <Action ID="811192af-b895-44db-9743-f7256b2d2790" Caption="Start process" ImageKey="RES:businessprocessspec" AppendSeparator="true" >
+              <StartBusinessProcess BusinessProcessID="30c47cb6-c2b2-4ae0-8aa0-55a72d3e205b" StatusPageID="73499daf-8c20-4a79-9f80-49a1bc2007f1" xmlns="bb_appfx_commontypes">
+                <ActionContext>
+                  <SectionField>ID</SectionField>
+                </ActionContext>
+              </StartBusinessProcess>
+            </Action>
+            <Action ID="1a117faf-3eb8-48a2-b682-29ab423706ec" Caption="Add" ImageKey="res:newitem">
+              <c:ShowAddDataForm DataFormID="d05a0e39-9372-4e60-affd-ef52067f5531" />
+            </Action>
+            <Action ID="69713a76-6c31-4f97-8a90-c67d5e4c89c5" Caption="Edit" ImageKey="res:Edit">
+              <c:ShowDataForm DataFormID="54c9dae0-1892-4307-8959-7368f42a9e3b" xmlns="bb_appfx_commontypes">
+                <ActionContext>
+                  <SectionField>ID</SectionField>
+                </ActionContext>
+              </c:ShowDataForm>
+            </Action>
+            <Action ID="208f8e47-5e62-4154-97e3-b2ca0ed3e347" Caption="Delete" ImageKey="res:Delete">
+              <c:ExecuteRecordOperation RecordOperationID="6db95a44-9894-4edf-bc8b-067d6fd41c04" xmlns="bb_appfx_commontypes">
+                <ActionContext>
+                  <SectionField>ID</SectionField>
+                </ActionContext>
+              </c:ExecuteRecordOperation>
+            </Action>
+          </Actions>
+        </Section>
+      </Sections>
+    </Tab>
+  </Tabs>
+
+</PageDefinitionSpec>

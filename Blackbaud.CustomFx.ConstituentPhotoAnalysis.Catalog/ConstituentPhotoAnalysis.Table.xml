@@ -1,0 +1,42 @@
+﻿<TableSpec
+  xmlns="bb_appfx_table"
+  xmlns:c="bb_appfx_commontypes"
+  ID="9ce8d45a-c025-4832-aebf-613d69574144"
+  Name="Constituent Photo Analysis"
+  Description="Stores information about analyzed constituent photos."
+  Author="Blackbaud Demo"
+  Tablename="USR_CONSTITUENTPHOTOANALYSIS"
+  IsBuiltIn="false"
+  PrimaryKeyAsForeignKeyTablename="CONSTITUENT"
+  >
+
+  <Fields>
+    <EnumField Name="PREDICTEDGENDERCODE" Description="The predicted gender of the constituent." DefaultValue="0" >
+      <EnumValues>
+        <EnumValue ID="0" Translation="Unknown"/>
+        <EnumValue ID="1" Translation="Male"/>
+        <EnumValue ID="2" Translation="Female"/>
+        <EnumValue ID="3" Translation="Other"/>
+      </EnumValues>
+    </EnumField>
+
+    <NumberField Name="ESTIMATEDAGE" Description="The estimated age of the constituent." />
+
+    <DecimalField Name="ANGERRATING" Description="The estimated confidence (0-1) that the person in the photo has an expression of anger." />
+
+    <DecimalField Name="CONTEMPTRATING" Description="The estimated confidence (0-1) that the person in the photo has an expression of contempt." />
+
+    <DecimalField Name="DISGUSTRATING" Description="The estimated confidence (0-1) that the person in the photo has an expression of disgust." />
+
+    <DecimalField Name="FEARRATING" Description="The estimated confidence (0-1) that the person in the photo has an expression of fear." />
+
+    <DecimalField Name="HAPPINESSRATING" Description="The estimated confidence (0-1) that the person in the photo has an expression of happiness." />
+
+    <DecimalField Name="NEUTRALRATING" Description="The estimated confidence (0-1) that the person in the photo has a neutral expression." />
+
+    <DecimalField Name="SADNESSRATING" Description="The estimated confidence (0-1) that the person in the photo has an expression of sadness." />
+
+    <DecimalField Name="SURPRISERATING" Description="The estimated confidence (0-1) that the person in the photo has an expression of surprise." />
+  </Fields>
+
+</TableSpec>

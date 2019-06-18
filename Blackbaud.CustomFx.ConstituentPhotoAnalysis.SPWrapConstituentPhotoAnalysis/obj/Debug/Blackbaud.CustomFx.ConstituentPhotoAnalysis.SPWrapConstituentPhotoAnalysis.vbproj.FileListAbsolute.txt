@@ -1,0 +1,8 @@
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.dll
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.pdb
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.dll.CodeAnalysisLog.xml
+C:\Infinity\DEV\MAIN\Blackbaud.AppFx.Server\Deploy\bin\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.dll.lastcodeanalysissucceeded
+C:\Users\DavidHe\Desktop\DevCon 2019\AI\ConstituentPhotoAnalysis\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis\obj\Debug\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.vbproj.CoreCompileInputs.cache
+C:\Users\DavidHe\Desktop\DevCon 2019\AI\ConstituentPhotoAnalysis\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis\obj\Debug\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.vbproj.CopyComplete
+C:\Users\DavidHe\Desktop\DevCon 2019\AI\ConstituentPhotoAnalysis\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis\obj\Debug\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.dll
+C:\Users\DavidHe\Desktop\DevCon 2019\AI\ConstituentPhotoAnalysis\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis\obj\Debug\Blackbaud.CustomFx.ConstituentPhotoAnalysis.SPWrapConstituentPhotoAnalysis.pdb

@@ -1,0 +1,39 @@
+﻿<ViewDataFormTemplateSpec
+  xmlns="bb_appfx_viewdataformtemplate"
+  xmlns:c="bb_appfx_commontypes"
+  ID="947033d0-3aad-4d9a-b1dd-fdcafef04ff7"
+  Name="Constituent Photo Analysis Process Recent Status View Form"
+  Description="A data form for viewing constituent photo analysis process recent status records."
+  Author="Blackbaud Demo"
+  DataFormInstanceID="7af8c991-c049-4d03-80d2-b3a72dea6470"
+  RecordType="Constituent Photo Analysis Process Status"
+  c:SecurityUIFolder="Constituent Photo Analysis"
+  >
+
+  <CLRDataForm AssemblyName="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog" ClassName="Blackbaud.CustomFx.ConstituentPhotoAnalysis.Catalog.ConstituentPhotoAnalysisProcessRecentStatusViewDataForm" />
+
+  <FormMetaData xmlns="bb_appfx_commontypes">
+    <FormFields>
+      <FormField FieldID="STATUS" DataType="String" Caption="Status" />
+      <FormField FieldID="MESSAGE" DataType="String" Caption="Status message" />
+      <FormField FieldID="STARTEDBY" DataType="String" Caption="Started by" />
+      <FormField FieldID="STARTEDON" DataType="String" Caption="Started" />
+      <FormField FieldID="ENDEDON" DataType="String" Caption="Ended" />
+      <FormField FieldID="DURATION" DataType="String" Caption="Duration" />
+      <FormField FieldID="SUCCESSCOUNT" Caption="Records successfully processed" />
+      <FormField FieldID="EXCEPTIONCOUNT" Caption="Number of exceptions" />
+      <FormField FieldID="TOTALNUMBERPROCESSED" Caption="Total records processed" />
+      <FormField FieldID="SERVERNAME" DataType="String" Caption="Server name" />
+      <FormField FieldID="IMAGEKEY" DataType="String" ReadOnly="true" Hidden ="true" />
+      <FormField FieldID="COMPLETED" DataType="Boolean" ReadOnly="true" Hidden="true" />
+      <FormField FieldID="ENABLEDOWNLOAD" DataType="Boolean" ReadOnly="true" Hidden="true" />
+      <FormField FieldID="STATUSCODE" DataType="Integer" Hidden="true" />
+      <FormField FieldID="ISRUNNING" DataType="Boolean" Hidden="true" />
+      <FormField FieldID="DIDNOTFINISH" DataType="Boolean" Hidden="true" />
+      <FormField FieldID="PARAMETERSETID" DataType="Guid" Hidden="true" />
+      <FormField FieldID="BUSINESSPROCESSCATALOGID" DataType="Guid" Hidden="true" />
+      <FormField FieldID="OUTPUTTABLEEXISTS" DataType="Boolean" Hidden="true" />
+    </FormFields>
+  </FormMetaData>
+
+</ViewDataFormTemplateSpec>

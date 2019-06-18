@@ -1,0 +1,53 @@
+﻿<ViewDataFormTemplateSpec
+  xmlns="bb_appfx_viewdataformtemplate"
+  xmlns:c="bb_appfx_commontypes"
+  ID="3fc50931-9c38-4773-b8d7-6f316268ca12"
+  Name="Constituent Photo Analysis Process View Form"
+  Description="A data form for viewing an constituent photo analysis process record."
+  Author="Blackbaud Demo"
+  DataFormInstanceID="cfab817f-b49c-41d5-9e31-091cc0641082"
+  RecordType="Constituent Photo Analysis Process"
+  c:SecurityUIFolder="Constituent Photo Analysis"
+  >
+
+  <SPDataForm SPName="USR_USP_DATAFORMTEMPLATE_VIEW_ACONSTITUENTPHOTOANALYSISPROCESS">
+    <c:CreateProcedureSQL>
+      <![CDATA[
+create procedure dbo.USR_USP_DATAFORMTEMPLATE_VIEW_ACONSTITUENTPHOTOANALYSISPROCESS
+(
+  @ID uniqueidentifier,
+  @DATALOADED bit = 0 output,
+  @NAME nvarchar(100) = null output,
+  @DESCRIPTION nvarchar(255) = null output,
+  @SELECTION nvarchar(300) = null output
+)
+as
+  set nocount on;
+
+  set @DATALOADED = 0;
+	
+  select
+    @DATALOADED = 1,
+    @NAME = USR_CONSTITUENTPHOTOANALYSISPROCESS.NAME,
+    @DESCRIPTION = USR_CONSTITUENTPHOTOANALYSISPROCESS.DESCRIPTION,
+    @SELECTION = IDSETREGISTER.NAME
+  from 
+    dbo.USR_CONSTITUENTPHOTOANALYSISPROCESS
+    left join dbo.IDSETREGISTER on IDSETREGISTER.ID = USR_CONSTITUENTPHOTOANALYSISPROCESS.IDSETREGISTERID
+  where 
+    USR_CONSTITUENTPHOTOANALYSISPROCESS.ID = @ID
+	
+  return 0;
+]]>
+    </c:CreateProcedureSQL>
+  </SPDataForm>
+
+  <FormMetaData xmlns="bb_appfx_commontypes">
+    <FormFields>
+      <FormField FieldID="NAME" Caption="Name" DataType="String" />
+      <FormField FieldID="DESCRIPTION" Caption="Description" DataType="String" />
+      <FormField FieldID="SELECTION" Caption="Selection" DataType="String" />
+    </FormFields>
+  </FormMetaData>
+
+</ViewDataFormTemplateSpec>
